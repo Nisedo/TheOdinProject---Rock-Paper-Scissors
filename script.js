@@ -1,3 +1,4 @@
+// Randomly pick the computer choice
 const getComputerChoice= () => {
     const randomNumber = (Math.floor(Math.random() * 3))
     if (randomNumber === 0){
@@ -11,12 +12,11 @@ const getComputerChoice= () => {
     }
       }
 
-  // console.log(getComputerChoice());
-
   let scorePlayer = 0;
   let scoreComputer = 0;
   let ties = 0;
 
+  // Play one round, update the socres and consolelog the winner
   function playRound(playerSelection, computerSelection){
     computerSelection = getComputerChoice();
     console.log("Computer choose:", computerSelection)
@@ -47,36 +47,22 @@ const getComputerChoice= () => {
         }
     }
 
-  function game(){
-    for (let i = 1; i < 6; i++){
-        playerSelection = prompt(`Type Rock, Paper, or Scissors:`).toUpperCase();
-        playRound(playerSelection, getComputerChoice)
-        // console.log("You choose: " + playerSelection.toUpperCase());
-        // console.log(`Game: ` + i);
-        console.log("Game: " + i + '\n' + "Your Score: "+ scorePlayer + '\n' + "Computer Score: " + scoreComputer);
-        if (i == 5){
-            if (scorePlayer > scoreComputer){
-                console.log("Congrats, you win !")
-            } else if (scorePlayer < scoreComputer){
-                console.log("Too bad, you loose !")
-            } else {
-                console.log("It's a tie !")
-            }
-            }
+    // Ask the user for his choice, play one round, consolelog the scores until 5 games are played then consolelog the winner
+    function game(){
+        for (let i = 1; i < 6; i++){
+            playerSelection = prompt(`Type Rock, Paper, or Scissors:`).toUpperCase();
+            playRound(playerSelection, getComputerChoice)
+            console.log("Game: " + i + '\n' + "Your Score: "+ scorePlayer + '\n' + "Computer Score: " + scoreComputer);
+            if (i == 5){
+                if (scorePlayer > scoreComputer){
+                    console.log("Congrats, you win !")
+                } else if (scorePlayer < scoreComputer){
+                    console.log("Too bad, you loose !")
+                } else {
+                    console.log("It's a tie !")
+                }
+                }
         }
 }
 
 game();
-/* 
-                                        function game(){
-                                            for (let i = 1; i < 4; i++){
-                                                choice = prompt(`Type Rock, Paper, or Scissors:`);
-                                                alert(`You: `+ choice[0].toUpperCase() + choice.substring(1) + `!\r` + playerSelection());
-                                                alert(`Game: ` + i + `/3\r` + `Score:\rYou: ` + w +`\rCPU: ` + l + `\rTies: ` + t);
-                                                if (badAnswer == 1){
-                                                    i--;
-                                                    badAnswer--;
-                                                }
-                                        }}
-
-                                        game(); */
