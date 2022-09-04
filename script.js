@@ -16,7 +16,7 @@ const getComputerChoice= () => {
   let scoreComputer = 0;
   let ties = 0;
 
-  // Play one round, update the socres and consolelog the winner
+  // Play one round, update the scores and log the winner
   function playRound(playerSelection, computerSelection){
     computerSelection = getComputerChoice();
     console.log("Computer choose:", computerSelection)
@@ -47,7 +47,7 @@ const getComputerChoice= () => {
         }
     }
 
-    // Ask the user for his choice, play one round, consolelog the scores until 5 games are played then consolelog the winner
+    // Ask the user for his choice, play one round, log the scores until 5 games are played then log the winner
     function game(){
         for (let i = 1; i < 6; i++){
             playerSelection = prompt(`Type Rock, Paper, or Scissors:`).toUpperCase();
